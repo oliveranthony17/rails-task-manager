@@ -1,0 +1,46 @@
+<h1>My Tasks</h1>
+<br>
+<ul class="list-unstyled px-1">
+  <% @tasks.each do |task| %>
+    <li>
+      <div class="d-flex">
+        <div>
+          <% if task.completed %>
+            <i class="fa-regular fa-square-check"></i>
+          <% else %>
+            <i class="fa-regular fa-square"></i>
+          <% end %>
+        </div>
+        <div class="text-white">
+          <p>.</p>
+        </div>
+        <div>
+          <%=
+            link_to task.title.capitalize,
+            task_path(task[:id]),
+            class: "text-decoration-none"
+          %>
+        </div>
+        <div class="text-white">
+          <p>.</p>
+        </div>
+        <div>
+        <%=
+          link_to "",
+          task_path(task[:id]),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "fa-solid fa-trash-can"
+        %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<div>
+  <%=
+    button_to 'Add new task',
+    tasks_new_path,
+    method: :get,
+    class: "btn btn-primary"
+  %>
+</div>

@@ -1,0 +1,14 @@
+<%= form_with model: @task, class: "form-group" do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+  <br>
+  <%= f.label :details %>
+  <%= f.text_field :details, class: "form-control" %>
+  <br>
+  <%= f.check_box :completed %>
+  <%= f.label :completed %>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <%# <%= f.submit %>
+<% end %>

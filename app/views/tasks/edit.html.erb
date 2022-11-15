@@ -1,0 +1,8 @@
+<%= render "form", task: @task %>
+<br>
+<%=
+  button_to 'Back to task overview',
+  task_path(@task[:id]),
+  method: :get,
+  class: "btn btn-primary"
+%>
